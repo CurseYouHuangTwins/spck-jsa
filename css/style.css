@@ -1,0 +1,10 @@
+img {
+    object-fit: cover
+}
+.gallery {
+    width: 100%;
+    aspect-ratio: 4/3;
+}
+.product-col {
+    margin: 16px;
+}
