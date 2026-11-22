@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
 </head>
 <body>
+    <div id="product">
+        <h1 id="product-name">Product not found!</h1>
+        <p id="contents">Product not found!</p>
+        <div id="carouselStacked" class="carousel slide">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Top controls</h5>
+                <div>
+                <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStacked" data-bs-slide="prev">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStacked" data-bs-slide="next">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+            <div class="carousel-inner rounded-5" id="carousel">
+                <div class="carousel-item active">
+                <img id="carousel-one" src="https://thumbs.dreamstime.com/b/bold-red-triangle-exclamation-mark-symbolizing-caution-alertness-red-warning-triangle-exclamation-mark-safety-365565643.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-beta.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script type="module" src="scripts/product.js"></script>
 </body>
 </html>
