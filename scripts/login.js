@@ -21,7 +21,7 @@ const response_length = await fetch('https://users-logindb.aws-ap-northeast-1.tu
             ],
         }),
     });
-const data_length = await response_length.json();
+const data_length = await response_length.json(); // First shit
 for (let i = 0; i < data_length.results.length; i++) {
     const response = await fetch('https://users-logindb.aws-ap-northeast-1.turso.io/v2/pipeline', {
         method: "POST",
