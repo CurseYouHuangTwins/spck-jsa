@@ -4,6 +4,8 @@ link.type = 'text/css';
 link.href = '../css/style.css';
 
 document.head.appendChild(link);
+document.head.innerHTML += '<link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">'
+document.body.innerHTML += '<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>'
 
 export const MAIN_API_KEY = "bdb9b375-2a0d-46e5-b324-6d114f007e7b"
 export const CONTENT_API_KEY = "11c4c4a5-40a6-4ae7-8f7d-fb262acd5ac8"

@@ -1,5 +1,5 @@
 img {
-    object-fit: cover
+    object-fit: contain
 }
 .gallery {
     width: 100%;
@@ -7,4 +7,8 @@ img {
 }
 .product-col {
     margin: 16px;
+}
+.badge-product {
+    width: 100px;
+    height: 100px;
 }
