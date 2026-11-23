@@ -6,9 +6,73 @@ img {
     aspect-ratio: 4/3;
 }
 .product-col {
-    margin: 16px;
+    min-width: 0;
+    padding: 16px;
 }
 .badge-product {
     width: 100px;
     height: 100px;
+}
+.product-specifications {
+    margin-top: 1.5rem;
+}
+.spec-tabs-scrollbar {
+    height: 8px;
+    margin-bottom: 0.35rem;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #e9ecef;
+    cursor: pointer;
+    touch-action: none;
+}
+.spec-tabs-scrollbar[hidden] {
+    display: none;
+}
+.spec-tabs-scrollbar-thumb {
+    height: 100%;
+    min-width: 32px;
+    border-radius: inherit;
+    background: #6c757d;
+}
+.spec-tabs-scrollbar-thumb:hover {
+    background: #495057;
+}
+.product-specifications .nav-tabs {
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+.product-specifications .nav-tabs::-webkit-scrollbar-thumb {
+    display: none;
+}
+.product-specifications .nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+.product-specifications .nav-link {
+    border-radius: 0.65rem 0.65rem 0 0;
+    white-space: nowrap;
+}
+.product-specifications .tab-content {
+    padding-top: 1rem;
+}
+.spec-feature-card {
+    border-radius: 0.85rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.spec-feature-card:hover {
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+.spec-feature-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.spec-feature-card .card-subtitle {
+    margin-bottom: 0.5rem;
+}
+.spec-feature-card .card-text {
+    margin-bottom: 0;
+    font-weight: 500;
 }

@@ -11,7 +11,7 @@
 <body>
     <div class="container card">
         <div id="product" class="row">
-            <div class="col product-col">
+            <div class="col-6 product-col">
                 <div id="carouselStacked" class="carousel slide card">
                     <div class="d-flex justify-content-between align-items-center  product-col">
                         <div>
@@ -38,16 +38,35 @@
                     <div id="badges">
 
                     </div>
-                    <h1>Specs</h1>
+                    <div class="product-specifications">
+                        <div class="spec-tabs-scrollbar" id="specTabsScrollbar" role="scrollbar" aria-label="Scroll product specification tabs" aria-controls="myTab" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0" hidden>
+                            <div class="spec-tabs-scrollbar-thumb" id="specTabsScrollbarThumb"></div>
+                        </div>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist" aria-label="Product specifications">
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col product-col">
+            <div class="col-6 product-col">
                 <h1 id="product-name">Product not found!</h1><br>
                 <p id="contents">Product not found!</p>
             </div>
         </div>
     </div>
-    
+    <dialog class="dialog" id="exampleDialog">
+        <div class="dialog-header">
+            <h1 class="dialog-title" id="dialog-title">Info</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Close"></button>
+        </div>
+        <div class="dialog-body" id="dialog-badges">
+            <p>Why are you accessing this?</p>
+        </div>
+        <div class="dialog-footer">
+            <button type="button" class="btn-solid theme-secondary" data-bs-dismiss="dialog">Close</button>
+        </div>
+    </dialog>
     <script type="module" src="scripts/product.js"></script>
 </body>
 
