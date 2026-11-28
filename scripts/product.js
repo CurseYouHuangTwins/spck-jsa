@@ -145,3 +145,20 @@ specTabsScrollbar.addEventListener('keydown', (event) => {
 requestAnimationFrame(updateSpecTabsScrollbar);
 document.getElementById("product-name").innerHTML = data.data.GeneralInfo.ProductName
 document.getElementById("contents").innerHTML = data.data.GeneralInfo.Description.LongDesc
+for (let mediaIndex = 0; mediaIndex < data.data.Multimedia.length; mediaIndex++) {
+  const media = data.data.Multimedia[mediaIndex];
+  const tabId = `media-tab-${mediaIndex}`;
+  const paneId = `media-pane-${mediaIndex}`;
+  const isActive = mediaIndex === 0;
+  const mediaContent = media.ContentType === "video/mp4"
+    ? `<video class="product-video" controls playsinline preload="metadata">
+        <source src="${media.URL}" type="${media.ContentType}">
+        Your browser does not support embedded video. <a href="${media.URL}">Open the video</a>.
+      </video>`
+    : `<p>This website does not support this type of content: ${media.ContentType}. If you have a suitable viewing device, here is the URL: <a href="${media.URL}">${media.URL}</a></p>`;
+
+  document.getElementById("myTabM").innerHTML += `<li class="nav-item" role="presentation">
+    <button class="nav-link${isActive ? ' active' : ''}" id="${tabId}" data-bs-toggle="tab" data-bs-target="#${paneId}" type="button" role="tab" aria-controls="${paneId}" aria-selected="${isActive}">${media.Description}</button>
+  </li>`;
+  document.getElementById("myTabContentM").innerHTML += `<div class="tab-pane fade${isActive ? ' show active' : ''}" id="${paneId}" role="tabpanel" aria-labelledby="${tabId}" tabindex="0">${mediaContent}</div>`;
+}

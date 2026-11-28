@@ -57,6 +57,12 @@ img {
 .product-specifications .tab-content {
     padding-top: 1rem;
 }
+.product-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
 .spec-feature-card {
     border-radius: 0.85rem;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
