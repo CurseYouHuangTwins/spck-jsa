@@ -9,8 +9,8 @@ const response = await fetch("https://live.icecat.biz/api?lang=EN&icecat_id="+pr
   headers: {
     "Content-Type": "application/json",
     "Authorization": "Bearer "+MAIN_API_KEY,
-    // "api-token": MAIN_API_KEY, // Doesn't work
-    // "content-token": CONTENT_API_KEY // Doesn't work
+    // "Api-Token": MAIN_API_KEY, // Doesn't work, apparently fetch() converts all headers to lowercase, so the server doesn't recognize it
+    // "content-token": CONTENT_API_KEY // Doesn't work for the same reason 
   },
 });
 const data = await response.json()
@@ -184,4 +184,5 @@ for (let related of data.data.ProductRelated) {
     <a href="product.html?product=${data_product.data.GeneralInfo.IcecatId}" class="btn-solid theme-primary mt-auto">Go to product</a>
   </div>
 </section></col>`
+
 }
