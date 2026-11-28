@@ -151,14 +151,37 @@ for (let mediaIndex = 0; mediaIndex < data.data.Multimedia.length; mediaIndex++)
   const paneId = `media-pane-${mediaIndex}`;
   const isActive = mediaIndex === 0;
   const mediaContent = media.ContentType === "video/mp4"
-    ? `<video class="product-video" controls playsinline preload="metadata">
+    ? `<video class="product-video" controls playsinline preload="metadata" poster="${media.PreviewUrl}">
         <source src="${media.URL}" type="${media.ContentType}">
         Your browser does not support embedded video. <a href="${media.URL}">Open the video</a>.
       </video>`
-    : `<p>This website does not support this type of content: ${media.ContentType}. If you have a suitable viewing device, here is the URL: <a href="${media.URL}">${media.URL}</a></p>`;
+    : media.ContentType === "application/pdf" ? `<object data="${media.URL}" type="application/pdf" width="100%" height="600px">
+  <p>Your browser cannot display this PDF. <a href="${media.URL}">Download it here</a>.</p>
+</object>` : `<p>This website does not support this type of content: ${media.ContentType}. If you have a suitable viewing device, here is the URL: <a href="${media.URL}">${media.URL}</a></p>`;
 
   document.getElementById("myTabM").innerHTML += `<li class="nav-item" role="presentation">
     <button class="nav-link${isActive ? ' active' : ''}" id="${tabId}" data-bs-toggle="tab" data-bs-target="#${paneId}" type="button" role="tab" aria-controls="${paneId}" aria-selected="${isActive}">${media.Description}</button>
   </li>`;
   document.getElementById("myTabContentM").innerHTML += `<div class="tab-pane fade${isActive ? ' show active' : ''}" id="${paneId}" role="tabpanel" aria-labelledby="${tabId}" tabindex="0">${mediaContent}</div>`;
+}
+
+for (let related of data.data.ProductRelated) {
+  const response_product = await fetch("https://live.icecat.biz/api?lang=EN&icecat_id="+related.IcecatID+"&UserName=Hung027558", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer "+MAIN_API_KEY,
+      // "api-token": MAIN_API_KEY, // Doesn't work
+      // "content-token": CONTENT_API_KEY // Doesn't work
+    },
+  });
+  const data_product = await response_product.json()
+  document.getElementById("similar").innerHTML += `<div class="col"><section class="card h-100" style="height: 1fr">
+  <img src="${data_product.data.Gallery[0].Pic}" class="card-img-top gallery" alt="...">
+  <div class="card-body">
+    <h4 class="card-title">${data_product.data.GeneralInfo.ProductName}</h4>
+    <p class="card-text">${data_product.data.GeneralInfo.Description.MiddleDesc}</p>
+    <a href="product.html?product=${data_product.data.GeneralInfo.IcecatId}" class="btn-solid theme-primary mt-auto">Go to product</a>
+  </div>
+</section></col>`
 }

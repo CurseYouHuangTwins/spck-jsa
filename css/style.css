@@ -1,5 +1,5 @@
 img {
-    object-fit: contain
+    object-fit: cover
 }
 .gallery {
     width: 100%;
